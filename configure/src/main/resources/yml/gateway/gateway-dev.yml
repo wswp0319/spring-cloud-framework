@@ -1,15 +1,18 @@
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#      - id: bulletscreen
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: bulletscreen
 #        uri: lb://bullet
-#        predicates:
-#        - Path=/bullet/info/**
-#      - id: bulletscreen
+        uri: lb://http://localhost:8764/bullet
+        predicates:
+        - Path=/bullet/info/**
+      - id: bulletscreen
 #        uri: lb:ws://bullet
-#        predicates:
-#        - Path=/bullet/**
+        uri: lb:ws://localhost:8764/bullet
+        predicates:
+        - Path=/bullet/**
+
 server:
   port: 8888
 eureka:
@@ -18,34 +21,13 @@ eureka:
      serviceUrl:
       #服务治理地址
       defaultZone: http://localhost:8761/eureka/
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#      - id: host_route
-#        uri: http://www.baidu.com
-#        predicates:
-#        - Path=/a/**
-#        filters:
-#        - StripPrefix=1
-#      - id: host_route
-#        uri: http://www.baidu.com
-#        predicates:
-#        - Path=/b/**
-#        filters:
-#        - StripPrefix=1
 
-#        filters:
-#        - name: Hystrix
-#          args:
-#            name: fallbackcmd
-#            fallbackUri: forward:/incaseoffailureusethis
-#        - RewritePath=/consumingserviceendpoint, /backingserviceendpoint
 management:
   endpoints:
     web:
       exposure:
         include: refresh
+
 logging:
   level:
     ROOT: INFO

@@ -38,22 +38,22 @@ public class GatewayApplication {
         SpringApplication.run(GatewayApplication.class, args);
     }
 
-    @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-        return builder.routes()
-                .route(r -> r.path("/baidu")
-                        .uri("http://baidu.com:80/")
-                )
-                .route("bullet", r -> r.path("/bullet/info/**")
-                        .uri("lb://http://localhost:8764/bullet"))
-                .route("bulletscreen", r -> r.path("/bullet/**")
-                        .uri("lb:ws://localhost:8764/bullet"))
+//    @Bean
+//    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+//        return builder.routes()
+//                .route(r -> r.path("/baidu")
+//                        .uri("http://baidu.com:80/")
+//                )
+//                .route("bullet", r -> r.path("/bullet/info/**")
+//                        .uri("lb://http://localhost:8764/bullet"))
+//                .route("bulletscreen", r -> r.path("/bullet/**")
+//                        .uri("lb:ws://localhost:8764/bullet"))
 //                .route(r -> r.path("/userapi3/**")
 //                        .filters(f -> f.addResponseHeader("X-AnotherHeader", "testapi3"))
 //                        .uri("lb://bullet/")
 //                )
-                .build();
-    }
+//                .build();
+//    }
 
     @Bean
     public RouteDefinitionLocator discoveryClientRouteDefinitionLocator(DiscoveryClient discoveryClient,
