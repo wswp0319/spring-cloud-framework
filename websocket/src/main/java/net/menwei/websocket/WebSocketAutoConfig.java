@@ -22,9 +22,6 @@ public class WebSocketAutoConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/bullet")     //开启/bullet端点
                 .setAllowedOrigins("*")             //允许跨域访问
                 .withSockJS();                      //使用sockJS
-        registry.addEndpoint("/websocket")     //开启/bullet端点
-                .setAllowedOrigins("*")             //允许跨域访问
-                .withSockJS();                      //使用sockJS
     }
 
     @Override

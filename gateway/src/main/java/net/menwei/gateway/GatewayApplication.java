@@ -10,6 +10,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
 import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -34,6 +36,23 @@ public class GatewayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
+    }
+
+    @Bean
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route(r -> r.path("/baidu")
+                        .uri("http://baidu.com:80/")
+                )
+                .route("bullet", r -> r.path("/bullet/info/**")
+                        .uri("lb://http://localhost:8764/bullet"))
+                .route("bulletscreen", r -> r.path("/bullet/**")
+                        .uri("lb:ws://localhost:8764/bullet"))
+//                .route(r -> r.path("/userapi3/**")
+//                        .filters(f -> f.addResponseHeader("X-AnotherHeader", "testapi3"))
+//                        .uri("lb://bullet/")
+//                )
+                .build();
     }
 
     @Bean

@@ -1,15 +1,15 @@
-spring:
-  cloud:
-    gateway:
-      routes:
-      - id: bulletscreen
-        uri: lb://bullet
-        predicates:
-        - Path=/bullet/info/**
-      - id: bulletscreen
-        uri: lb:ws://bullet
-        predicates:
-        - Path=/bullet/**
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: bulletscreen
+#        uri: lb://bullet
+#        predicates:
+#        - Path=/bullet/info/**
+#      - id: bulletscreen
+#        uri: lb:ws://bullet
+#        predicates:
+#        - Path=/bullet/**
 server:
   port: 8888
 eureka:
@@ -23,13 +23,13 @@ eureka:
 #    gateway:
 #      routes:
 #      - id: host_route
-#        uri: http://localhost:8081
+#        uri: http://www.baidu.com
 #        predicates:
 #        - Path=/a/**
 #        filters:
 #        - StripPrefix=1
 #      - id: host_route
-#        uri: http://localhost:8082
+#        uri: http://www.baidu.com
 #        predicates:
 #        - Path=/b/**
 #        filters:
