@@ -12,6 +12,10 @@ spring:
         uri: lb:ws://localhost:8764/bullet
         predicates:
         - Path=/bullet/**
+      - id: wsvice
+        uri: lb:ws://localhost:8764/websocket
+        predicates:
+        - Path=/websocket/**
 
 server:
   port: 8888
