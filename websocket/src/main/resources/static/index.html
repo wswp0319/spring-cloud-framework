@@ -49,7 +49,7 @@
             var socket1 = new SockJS("http://127.0.0.1:8764/websocket");
             //打开事件
             socket1.onopen = function() {
-                console.log("Socket 已打开");
+                console.log("Socket1 已打开");
                 socket1.send("这是来自客户端的消息" + location.href + new Date());
             };
             //获得消息事件
@@ -58,18 +58,18 @@
             };
             //关闭事件
             socket1.onclose = function() {
-                console.log("Socket已关闭");
+                console.log("Socket1已关闭");
             };
             //发生了错误事件
             socket1.onerror = function() {
-                console.log("Socket发生了错误");
+                console.log("Socket1发生了错误");
             }
             var stompClient1 = Stomp.over(socket1);
             stompClient1.connect({}, function(frame) {
                 setConnected(true);
-                console.log('Connected:' + frame);
+                console.log('Connected1:' + frame);
                 stompClient1.subscribe('/sendInfo', function(response) {
-                    showResponse(response.body);
+                    console.log(response.body);
                 });
 
             });
