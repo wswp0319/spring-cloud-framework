@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+      uri: http://localhost:1026/
+      profile: dev
+      label: master
+#    gateway:
+#      routes:
+#      - id: bulletscreen
+#        uri: lb://bullet
+#        predicates:
+#        - Path=/bullet/info/**
+#      - id: bulletscreen
+#        uri: lb:ws://bullet
+#        predicates:
+#        - Path=/bullet/**
+#server:
+#  port: 8888

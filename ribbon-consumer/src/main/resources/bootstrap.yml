@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    config:
+      uri: http://localhost:1026/
+      profile: dev
+      label: master
+
+#logging:
+#  level:
+#    ROOT: INFO
+#  instance:
+#    instanceId: ${spring.application.name):${random.int}
+#  file: D:\logs\${spring.application.name}.log

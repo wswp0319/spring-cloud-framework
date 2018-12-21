@@ -1,0 +1,28 @@
+#logging:
+#  level:
+#    ROOT: DEBUG
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+           - classpath:/yml/consumer/
+           - classpath:/yml/gateway/
+           - classpath:/yml/websocket/
+server:
+  port: 1026
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    ROOT: INFO
+  instance:
+    instanceId: ${spring.application.name):${random.int}
+  file: D:\logs\${spring.application.name}-${server.port}.log
