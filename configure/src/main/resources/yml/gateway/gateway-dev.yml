@@ -2,20 +2,20 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: bulletscreen
-#        uri: lb://bullet
-        uri: lb://http://localhost:8764/bullet
-        predicates:
-        - Path=/bullet/info/**
-        - Weight=WEBSOCKET,5
-      - id: bulletscreen1
-#        uri: lb:ws://bullet
-        uri: lb:ws://localhost:8764/bullet
-        predicates:
-        - Path=/bullet/**
-        - Weight=WEBSOCKET,5
+#      - id: bulletscreen
+##        uri: lb://bullet
+#        uri: lb://http://localhost:8764/bullet
+#        predicates:
+#        - Path=/bullet/info/**
+#        - Weight=WEBSOCKET,5
+#      - id: bulletscreen1
+##        uri: lb:ws://bullet
+#        uri: lb:ws://localhost:8764/bullet
+#        predicates:
+#        - Path=/bullet/**
+#        - Weight=WEBSOCKET,5
       - id: wsvice
-        uri: lb:ws://localhost:8764/websocket
+        uri: lb:ws://WEBSOCKET/websocket
 #        uri: lb://websocket
         predicates:
         - Path=/websocket/**
