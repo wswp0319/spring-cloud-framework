@@ -1,12 +1,13 @@
 spring:
   application:
     name: websocket
+  hystrix:
+    enabled: true
   cloud:
     config:
       uri: http://localhost:1026/
       profile: dev
       label: master
-
 management:
   endpoints:
     web:

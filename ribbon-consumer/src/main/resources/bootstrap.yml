@@ -1,6 +1,8 @@
 spring:
   application:
     name: consumer
+  hystrix:
+    enabled: true
   cloud:
     config:
       uri: http://localhost:1026/
